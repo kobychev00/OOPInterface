@@ -1,32 +1,51 @@
 public class Main {
     public static void main(String[] args) {
-        Car car = new Car();
-        Car car2 = new Car();
-        car.modelName = "car1";
-        car2.modelName = "car2";
-        car.wheelsCount = 4;
-        car2.wheelsCount = 4;
 
-        Truck truck = new Truck();
-        Truck truck2 = new Truck();
-        truck.modelName = "truck1";
-        truck2.modelName = "truck2";
-        truck.wheelsCount = 6;
-        truck2.wheelsCount = 8;
 
-        Bicycle bicycle = new Bicycle();
-        Bicycle bicycle2 = new Bicycle();
-        bicycle.modelName = "bicycle1";
-        bicycle2.modelName = "bicycle2";
-        bicycle.wheelsCount = 2;
-        bicycle2.wheelsCount = 2;
+        Bicycle stels = new Bicycle("Велосипед", "Stels 4", 4);
+        stels.printInfo();
+        stels.updateTyre();
 
-        ServiceStation station = new ServiceStation();
-        station.check(car, null, null);
-        station.check(car2, null, null);
-        station.check(null, bicycle, null);
-        station.check(null, bicycle2, null);
-        station.check(null, null, truck);
-        station.check(null, null, truck2);
+        Bicycle forward = new Bicycle("Велосипед", "Forward 4", 4);
+        forward.printInfo();
+        forward.updateTyre();
+
+
+        Car audi = new Car("Car", "Audi 80", 4);
+        audi.printInfo();
+        audi.checkEngine();
+        audi.updateTyre();
+
+        Car bmw = new Car("Car", "BMW", 4);
+        bmw.printInfo();
+        bmw.checkEngine();
+        bmw.updateTyre();
+
+        Truck man = new Truck("Truck", "Man 19", 12);
+        man.printInfo();
+        man.checkTrailer();
+        man.updateTyre();
+        man.checkEngine();
+
+        Truck kamaz = new Truck("Kamaz", "Kamaz 19", 12);
+        kamaz.printInfo();
+        kamaz.checkTrailer();
+        kamaz.updateTyre();
+        kamaz.checkEngine();
+
+
+        ServiceStation station = new ServiceStation() {
+            @Override
+            public void check(Car car, Bicycle bicycle, Truck truck) {
+
+            }
+        };
+
+        station.check(audi, null, null);
+        station.check(bmw, null, null);
+        station.check(null, stels, null);
+        station.check(null, forward, null);
+        station.check(null, null, man);
+        station.check(null, null,kamaz);
     }
 }
