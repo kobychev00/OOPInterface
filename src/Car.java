@@ -1,3 +1,5 @@
+import Transport.transport;
+
 public class Car extends transport {
 
         public Car(String type, String modelName, int wheelsCount) {

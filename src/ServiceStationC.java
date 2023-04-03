@@ -1,3 +1,5 @@
+import Transport.Bicycle;
+
 public class ServiceStationC implements ServiceStation {
     @Override
     public void check(Car Car, Bicycle Bicycle, Truck Truck) {
